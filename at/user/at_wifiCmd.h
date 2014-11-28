@@ -17,8 +17,9 @@
  */
 #ifndef __AT_WIFICMD_H
 #define __AT_WIFICMD_H
-
+// Послать в UART команды по их индексу
 void at_testCmdCwmode(uint8_t id);
+// Распечатать в UART режим WiFi
 void at_queryCmdCwmode(uint8_t id);
 void at_setupCmdCwmode(uint8_t id, char *pPara);
 
