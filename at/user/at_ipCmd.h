@@ -39,8 +39,11 @@ typedef struct
 	struct espconn *pCon;
 }at_linkConType;
 
+// Послать в UART команды по их индексу
 void at_testCmdCifsr(uint8_t id);
+// Распечатать в UART режим WiFi
 void at_setupCmdCifsr(uint8_t id, char *pPara);
+//
 void at_exeCmdCifsr(uint8_t id);
 
 void at_testCmdCipstatus(uint8_t id);
