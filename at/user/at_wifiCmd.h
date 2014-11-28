@@ -21,9 +21,12 @@
 void at_testCmdCwmode(uint8_t id);
 // Распечатать в UART режим WiFi
 void at_queryCmdCwmode(uint8_t id);
+// В этих исходниках все 3 режима одно и то же
+// видимо планировали UART, WiFi или оба режима сразу
 void at_setupCmdCwmode(uint8_t id, char *pPara);
-
+// Возможность различных типов сканирования
 //void at_testCmdCwjap(uint8_t id);
+
 void at_queryCmdCwjap(uint8_t id);
 void at_setupCmdCwjap(uint8_t id, char *pPara);
 
