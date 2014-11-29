@@ -54,30 +54,35 @@ void at_testCmdCipstart(uint8_t id);
 void at_setupCmdCipstart(uint8_t id, char *pPara);
 // Вывести статус в консоль
 void at_testCmdCipclose(uint8_t id);
-// Прш   ть линк и убрать из таблицы маршрутизации
+// Преотключение: Отключить линк и убрать из таблицы маршрутизации
 void at_setupCmdCipclose(uint8_t id, char *pPara);
-
+// Постотключение и перезагрузка: Отключить линк и убрать из таблицы маршрутизации
 void at_exeCmdCipclose(uint8_t id);
-
+// Вывести статус в консоль 
 void at_testCmdCipsend(uint8_t id);
+// Проверка длинны пакета не более 2048
 void at_setupCmdCipsend(uint8_t id, char *pPara);
+// Разделяют данные "+++" и отправка данных через 2 вложенные функции
 void at_exeCmdCipsend(uint8_t id);
-
+// Информация о мультилинк режиме
 void at_queryCmdCipmux(uint8_t id);
+// Установка флагов о мультилинке
 void at_setupCmdCipmux(uint8_t id, char *pPara);
-
+// Настройка TCP сервера на порту 333
 void at_setupCmdCipserver(uint8_t id, char *pPara);
-
+// Вывести в консоль какой прозрачный или нет режим используется
 void at_queryCmdCipmode(uint8_t id);
+// Установка режима прозрачности
 void at_setupCmdCipmode(uint8_t id, char *pPara);
-
+// Вывести таймаут
 void at_queryCmdCipsto(uint8_t id);
+// Установить таймаут соединения
 void at_setupCmdCipsto(uint8_t id, char *pPara);
-
+// Обновление через воздух с сервера iot.espressif.cn
 void at_exeCmdCiupdate(uint8_t id);
-
+// Вывести статус в консоль
 void at_exeCmdCiping(uint8_t id);
-
+// Неизвестное назначение функции
 void at_exeCmdCipappup(uint8_t id);
 
 #endif
