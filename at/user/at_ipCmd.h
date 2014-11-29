@@ -38,19 +38,25 @@ typedef struct
 	int32_t remotePort;
 	struct espconn *pCon;
 }at_linkConType;
-
+// Вывести статус в консоль
 void at_testCmdCifsr(uint8_t id);
+// Установить софтварный IP адресс
 void at_setupCmdCifsr(uint8_t id, char *pPara);
+// Получить железный и софтварный IP
 void at_exeCmdCifsr(uint8_t id);
-
+// Вывести статус в консоль
 void at_testCmdCipstatus(uint8_t id);
+// Вывести TCP и UDP порты
 void at_exeCmdCipstatus(uint8_t id);
-
+// Вывести 2 раза название команды с или с ID или без ID
 void at_testCmdCipstart(uint8_t id);
+// Настроить табицу внутренней маршрутизации
 void at_setupCmdCipstart(uint8_t id, char *pPara);
-
+// Вывести статус в консоль
 void at_testCmdCipclose(uint8_t id);
+// Прш   ть линк и убрать из таблицы маршрутизации
 void at_setupCmdCipclose(uint8_t id, char *pPara);
+
 void at_exeCmdCipclose(uint8_t id);
 
 void at_testCmdCipsend(uint8_t id);
