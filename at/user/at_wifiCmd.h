@@ -29,8 +29,9 @@ void at_setupCmdCwmode(uint8_t id, char *pPara);
 
 void at_queryCmdCwjap(uint8_t id);
 void at_setupCmdCwjap(uint8_t id, char *pPara);
-
+// Установить имя ssid аксес поинт 
 void at_setupCmdCwlap(uint8_t id, char *pPara);
+// Вывести список точек доступа
 void at_exeCmdCwlap(uint8_t id);
 
 void at_testCmdCwqap(uint8_t id);
