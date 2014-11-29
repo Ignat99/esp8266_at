@@ -17,7 +17,7 @@
  */
 #ifndef __AT_WIFICMD_H
 #define __AT_WIFICMD_H
-// Послать в UART команды по их индексу
+// Послать в UART название команды по её индексу
 void at_testCmdCwmode(uint8_t id);
 // Распечатать в UART режим WiFi
 void at_queryCmdCwmode(uint8_t id);
@@ -26,15 +26,18 @@ void at_queryCmdCwmode(uint8_t id);
 void at_setupCmdCwmode(uint8_t id, char *pPara);
 // Возможность различных типов сканирования
 //void at_testCmdCwjap(uint8_t id);
-
+//Подсоединиться к точке доступа
 void at_queryCmdCwjap(uint8_t id);
+// Установить пароль на точку доступа
 void at_setupCmdCwjap(uint8_t id, char *pPara);
 // Установить имя ssid аксес поинт 
 void at_setupCmdCwlap(uint8_t id, char *pPara);
 // Вывести список точек доступа
 void at_exeCmdCwlap(uint8_t id);
-
+// Хак - достать IP из списка
+// Вывести в UART текст
 void at_testCmdCwqap(uint8_t id);
+// Отсоедениться от точки доступа
 void at_exeCmdCwqap(uint8_t id);
 
 void at_queryCmdCwsap(uint8_t id);
