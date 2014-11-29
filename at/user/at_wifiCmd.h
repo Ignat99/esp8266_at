@@ -39,25 +39,31 @@ void at_exeCmdCwlap(uint8_t id);
 void at_testCmdCwqap(uint8_t id);
 // Отсоедениться от точки доступа
 void at_exeCmdCwqap(uint8_t id);
-
+// Элементарные параметры точки доступа
 void at_queryCmdCwsap(uint8_t id);
+// Простые проверки и установка основных параметров - ssid, пароль, номер канала
 void at_setupCmdCwsap(uint8_t id, char *pPara);
-
+// Показать IP и MAC каждой станции
 void at_exeCmdCwlif(uint8_t id);
-
+// Просто выделить буфер внутри функции
 void at_queryCmdCwdhcp(uint8_t id);
+// Мягкий старт 0 (считать из памяти), нормальный старт 1, вначале мягкий, если не получилось нормальный 2
 void at_setupCmdCwdhcp(uint8_t id, char *pPara);
-
+// Запросить MAC адресс железный
 void at_queryCmdCipstamac(uint8_t id);
+// Установить MAC адресс железный
 void at_setupCmdCipstamac(uint8_t id, char *pPara);
-
+// Запросить MAC адресс софтварный
 void at_queryCmdCipapmac(uint8_t id);
+// Установить MAC адресс софтварный
 void at_setupCmdCipapmac(uint8_t id, char *pPara);
-
+// Вывести железный IP
 void at_queryCmdCipsta(uint8_t id);
+// Установить железный IP
 void at_setupCmdCipsta(uint8_t id, char *pPara);
-
+// Вывести софтварный IP
 void at_queryCmdCipap(uint8_t id);
+// Установить софтварный IP
 void at_setupCmdCipap(uint8_t id, char *pPara);
 
 #endif
