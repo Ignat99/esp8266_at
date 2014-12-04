@@ -1920,10 +1920,10 @@ at_upDate_rsp(void *arg)
   {
 //    pbuf = (char *) os_zalloc(2048);
 //        ESP_DBG("user_esp_platform_upgarde_successfully\n");
-    os_printf("device_upgrade_success\r\n");
+    os_printf("device_get_file_success\r\n");
 //    action = "device_upgrade_success";
     at_backOk;
-    system_upgrade_reboot();
+//    system_upgrade_reboot();
 //    os_sprintf(pbuf, UPGRADE_FRAME,
 //               devkey, action,
 //               server->pre_version,
@@ -1941,7 +1941,7 @@ at_upDate_rsp(void *arg)
   else
   {
 //        ESP_DBG("user_esp_platform_upgrade_failed\n");
-    os_printf("device_upgrade_failed\r\n");
+    os_printf("device_get_file_failed\r\n");
 //    action = "device_upgrade_failed";
 //    os_sprintf(pbuf, UPGRADE_FRAME, devkey, action);
 //        ESP_DBG(pbuf);
@@ -2009,17 +2009,18 @@ at_upDate_discon_cb(void *arg)
 
   os_printf("disconnect\r\n");
 
-  if(system_upgrade_start(upServer) == false)
-  {
-//    uart0_sendStr("+CIPUPDATE:0/r/n");
-    at_backError;
-    specialAtState = TRUE;
-    at_state = at_statIdle;
-  }
-  else
-  {
-    uart0_sendStr("+CIPUPDATE:4\r\n");
-  }
+//  if(system_upgrade_start(upServer) == false)
+//  {
+////    uart0_sendStr("+CIPUPDATE:0/r/n");
+//    at_backError;
+//    specialAtState = TRUE;
+//    at_state = at_statIdle;
+//  }
+//  else
+//  {
+//    uart0_sendStr("+CIPUPDATE:4\r\n");
+  uart0_sendStr("+GETFILE:5\r\n");
+//  }
 }
 
 /**
@@ -2071,19 +2072,24 @@ at_upDate_recv(void *arg, char *pusrdata, unsigned short len)
     upServer->url = (uint8 *) os_zalloc(512);
   }
 
-  if(system_upgrade_userbin_check() == UPGRADE_FW_BIN1)
-  {
-    os_memcpy(user_bin, "user2.bin", 10);
-  }
-  else if(system_upgrade_userbin_check() == UPGRADE_FW_BIN2)
-  {
-    os_memcpy(user_bin, "user1.bin", 10);
-  }
+//  if(system_upgrade_userbin_check() == UPGRADE_FW_BIN1)
+//  {
+//    os_memcpy(user_bin, "user2.bin", 10);
+//  }
+//  else if(system_upgrade_userbin_check() == UPGRADE_FW_BIN2)
+//  {
+//    os_memcpy(user_bin, "user1.bin", 10);
+//  }
 
+//  os_sprintf(upServer->url,
+//        "GET /v1/device/rom/?action=download_rom&version=%s&filename=%s HTTP/1.1\r\nHost: "IPSTR":%d\r\n"pheadbuffer"",
+//        upServer->upgrade_version, user_bin, IP2STR(upServer->ip),
+//        upServer->port, KEY);
   os_sprintf(upServer->url,
-        "GET /v1/device/rom/?action=download_rom&version=%s&filename=%s HTTP/1.1\r\nHost: "IPSTR":%d\r\n"pheadbuffer"",
-        upServer->upgrade_version, user_bin, IP2STR(upServer->ip),
+        "GET /text.txt HTTP/1.1\r\nHost: "IPSTR":%d\r\n"pheadbuffer"",
+        IP2STR(upServer->ip),
         upServer->port, KEY);
+
 
   //  ESP_DBG(upServer->url);
 
@@ -2149,9 +2155,13 @@ at_upDate_connect_cb(void *arg)
 
   temp = (uint8 *) os_zalloc(512);
 
-  os_sprintf(temp,"GET /v1/device/rom/?is_format_simple=true HTTP/1.0\r\nHost: "IPSTR":%d\r\n"pheadbuffer"",
+//  os_sprintf(temp,"GET /v1/device/rom/?is_format_simple=true HTTP/1.0\r\nHost: "IPSTR":%d\r\n"pheadbuffer"",
+//             IP2STR(pespconn->proto.tcp->remote_ip),
+//             80, KEY);
+  os_sprintf(temp,"GET /text.txt HTTP/1.0\r\nHost: "IPSTR":%d\r\n"pheadbuffer"",
              IP2STR(pespconn->proto.tcp->remote_ip),
              80, KEY);
+
 
   espconn_sent(pespconn, temp, os_strlen(temp));
   os_free(temp);
@@ -2264,7 +2274,7 @@ at_exeCmdCiupdate(uint8_t id)
   pespconn->proto.tcp->remote_port = 80;
 
   specialAtState = FALSE;
-  espconn_gethostbyname(pespconn, "iot.espressif.cn", &host_ip, upServer_dns_found);
+  espconn_gethostbyname(pespconn, "zornica.tk", &host_ip, upServer_dns_found);
 }
 
 void ICACHE_FLASH_ATTR
