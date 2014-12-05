@@ -2042,19 +2042,19 @@ at_upDate_recv(void *arg, char *pusrdata, unsigned short len)
 //  os_printf("get upRom:\r\n");
   uart0_sendStr("+CIPUPDATE:3\r\n");
 
-//  os_printf("%s",pusrdata);
+  os_printf("%s",pusrdata);
   pTemp = (char *)os_strstr(pusrdata,"rom_version\": ");
-  if(pTemp == NULL)
-  {
-    return;
-  }
+//  if(pTemp == NULL)
+//  {
+//    return;
+//  }
   pTemp += sizeof("rom_version\": ");
 
 //  user_esp_platform_load_param(&esp_param);
 
   upServer = (struct upgrade_server_info *)os_zalloc(sizeof(struct upgrade_server_info));
-  os_memcpy(upServer->upgrade_version, pTemp, 5);
-  upServer->upgrade_version[5] = '\0';
+//  os_memcpy(upServer->upgrade_version, pTemp, 5);
+//  upServer->upgrade_version[5] = '\0';
   os_sprintf(upServer->pre_version, "v%d.%d", AT_VERSION_main, AT_VERSION_sub);
 
   upServer->pespconn = pespconn;

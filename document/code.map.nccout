@@ -1,0 +1,1397 @@
+
+D: at_dataStrCpy()
+
+D: at_testCmdCwmode()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+F: uart0_sendStr()
+
+D: at_queryCmdCwmode()
+G: at_wifiMode
+F: wifi_get_opmode()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+g: at_wifiMode
+F: uart0_sendStr()
+
+D: at_setupCmdCwmode()
+F: atoi()
+g: at_wifiMode
+F: uart0_sendStr()
+F: ets_isr_mask()
+F: wifi_set_opmode()
+F: ets_isr_unmask()
+G: at_wifiMode
+
+D: scan_done()
+s: bss_info.next
+s: next.stqe_next
+F: ets_memset()
+F: ets_strlen()
+s: bss_info.ssid
+F: ets_memcpy()
+F: ets_sprintf()
+s: bss_info.authmode
+s: bss_info.rssi
+s: bss_info.bssid[]
+s: bss_info.bssid
+s: bss_info.channel
+F: uart0_sendStr()
+G: specialAtState
+G: at_state
+
+D: at_setupCmdCwlap()
+F: at_dataStrCpy()
+F: uart0_sendStr()
+S: scan_config.ssid
+S: scan_config.bssid
+F: ets_str2macaddr()
+S: scan_config.channel
+F: atoi()
+F: wifi_station_scan()
+g: scan_done
+G: specialAtState
+
+D: at_exeCmdCwlap()
+g: at_wifiMode
+F: uart0_sendStr()
+F: wifi_station_scan()
+g: scan_done
+G: specialAtState
+
+D: at_queryCmdCwjap()
+F: wifi_station_get_config()
+F: wifi_get_ip_info()
+s: ip_info.ip
+s: ip_addr.addr
+F: uart0_sendStr()
+G: mdState
+s: station_config.ssid
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+
+D: at_japChack()
+F: ets_timer_disarm()
+g: at_japDelayChack
+F: wifi_station_get_connect_status()
+F: uart0_sendStr()
+G: specialAtState
+G: at_state
+F: wifi_station_disconnect()
+F: ets_sprintf()
+F: ets_timer_arm_new()
+
+D: at_setupCmdCwjap()
+F: ets_bzero()
+g: at_wifiMode
+F: uart0_sendStr()
+F: at_dataStrCpy()
+s: station_config.ssid
+s: station_config.password
+F: wifi_station_disconnect()
+G: mdState
+F: ets_isr_mask()
+F: wifi_station_set_config()
+F: ets_isr_unmask()
+F: wifi_station_connect()
+F: ets_timer_disarm()
+g: at_japDelayChack
+F: ets_timer_setfn()
+g: at_japChack
+F: ets_timer_arm_new()
+G: specialAtState
+
+D: at_testCmdCwqap()
+F: uart0_sendStr()
+
+D: at_exeCmdCwqap()
+F: wifi_station_disconnect()
+G: mdState
+F: uart0_sendStr()
+
+D: at_queryCmdCwsap()
+g: at_wifiMode
+F: uart0_sendStr()
+F: wifi_softap_get_config()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+s: softap_config.ssid
+s: softap_config.password
+s: softap_config.channel
+s: softap_config.authmode
+
+D: at_setupCmdCwsap()
+F: ets_bzero()
+F: wifi_softap_get_config()
+g: at_wifiMode
+F: uart0_sendStr()
+F: at_dataStrCpy()
+s: softap_config.ssid
+s: softap_config.password
+S: softap_config.channel
+F: atoi()
+s: softap_config.channel
+F: strchr()
+S: softap_config.authmode
+s: softap_config.authmode
+F: ets_isr_mask()
+F: wifi_softap_set_config()
+F: ets_isr_unmask()
+
+D: at_exeCmdCwlif()
+g: at_wifiMode
+F: uart0_sendStr()
+F: wifi_softap_get_station_info()
+F: ets_sprintf()
+s: station_info.ip
+s: station_info.bssid[]
+s: station_info.bssid
+s: station_info.next
+s: next.stqe_next
+F: vPortFree()
+
+D: at_queryCmdCwdhcp()
+
+D: at_setupCmdCwdhcp()
+F: atoi()
+F: strchr()
+F: wifi_softap_dhcps_start()
+F: wifi_softap_dhcps_stop()
+F: wifi_station_dhcpc_start()
+F: wifi_station_dhcpc_stop()
+F: uart0_sendStr()
+
+D: at_queryCmdCipstamac()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+F: uart0_sendStr()
+F: wifi_get_macaddr()
+
+D: at_setupCmdCipstamac()
+F: at_dataStrCpy()
+F: uart0_sendStr()
+F: strtol()
+F: os_printf()
+F: wifi_set_macaddr()
+
+D: at_queryCmdCipapmac()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+F: uart0_sendStr()
+F: wifi_get_macaddr()
+
+D: at_setupCmdCipapmac()
+F: at_dataStrCpy()
+F: uart0_sendStr()
+F: strtol()
+F: os_printf()
+F: wifi_set_macaddr()
+
+D: at_queryCmdCipsta()
+F: wifi_get_ip_info()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+F: uart0_sendStr()
+s: ip_info.ip
+
+D: at_setupCmdCipsta()
+F: wifi_station_dhcpc_stop()
+F: at_dataStrCpy()
+F: uart0_sendStr()
+F: wifi_get_ip_info()
+S: ip_info.ip
+S: ip_addr.addr
+F: ipaddr_addr()
+F: os_printf()
+s: ip_info.ip
+F: wifi_set_ip_info()
+F: wifi_station_dhcpc_start()
+
+D: at_queryCmdCipap()
+F: wifi_get_ip_info()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+F: uart0_sendStr()
+s: ip_info.ip
+
+D: at_setupCmdCipap()
+F: wifi_softap_dhcps_stop()
+F: at_dataStrCpy()
+F: uart0_sendStr()
+F: wifi_get_ip_info()
+S: ip_info.ip
+S: ip_addr.addr
+F: ipaddr_addr()
+F: os_printf()
+s: ip_info.ip
+F: wifi_set_ip_info()
+F: wifi_softap_dhcps_start()
+
+R: *wifi_station_scan()__farg1() scan_done()
+R: *wifi_station_scan()__farg1() scan_done()
+R: *ets_timer_setfn()__farg1() at_japChack()
+
+
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/at_wifiCmd.c
+L: at_dataStrCpy() 46 77
+L: at_testCmdCwmode() 84 91
+L: at_queryCmdCwmode() 98 107
+L: at_setupCmdCwmode() 115 142
+L: scan_done() 150 188
+L: at_setupCmdCwlap() 197 278
+L: at_exeCmdCwlap() 285 295
+L: at_queryCmdCwjap() 302 332
+L: at_japChack() 339 370
+L: at_setupCmdCwjap() 378 426
+L: at_testCmdCwqap() 433 437
+L: at_exeCmdCwqap() 444 450
+L: at_queryCmdCwsap() 457 477
+L: at_setupCmdCwsap() 485 562
+L: at_exeCmdCwlif() 564 587
+L: at_queryCmdCwdhcp() 589 594
+L: at_setupCmdCwdhcp() 596 659
+L: at_queryCmdCipstamac() 661 674
+L: at_setupCmdCipstamac() 676 703
+L: at_queryCmdCipapmac() 706 719
+L: at_setupCmdCipapmac() 721 748
+L: at_queryCmdCipsta() 750 763
+L: at_setupCmdCipsta() 765 797
+L: at_queryCmdCipap() 799 812
+L: at_setupCmdCipap() 814 846
+
+
+P: /opt/Espressif/ESP8266_SDK/include/ip_addr.h
+Y: ip_addr 6 8
+Y: ip_info 12 16
+
+P: /opt/Espressif/ESP8266_SDK/include/user_interface.h
+Y: bss_info 116 125
+Y: next 116 117
+Y: station_config 138 143
+Y: scan_config 151 156
+Y: softap_config 189 197
+Y: station_info 202 207
+Y: next 202 203
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/../include/at.h
+Y: at_funcationType 56 64
+#153 types
+#46 arglists
+#144 regions
+#25 function definitions
+
+D: at_testCmdCifsr()
+F: uart0_sendStr()
+
+D: at_setupCmdCifsr()
+g: at_wifiMode
+F: uart0_sendStr()
+F: strchr()
+F: at_dataStrCpy()
+F: wifi_get_ip_info()
+S: ip_info.ip
+S: ip_addr.addr
+F: ipaddr_addr()
+F: os_printf()
+s: ip_info.ip
+F: wifi_set_ip_info()
+
+D: at_exeCmdCifsr()
+g: at_wifiMode
+F: wifi_get_ip_info()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+F: uart0_sendStr()
+s: ip_info.ip
+F: wifi_get_macaddr()
+G: mdState
+
+D: at_testCmdCipstatus()
+F: uart0_sendStr()
+
+D: at_exeCmdCipstatus()
+F: ets_sprintf()
+g: mdState
+F: uart0_sendStr()
+g: serverEn
+g: pLink[]
+g: pLink
+s: at_linkConType.linkEn
+s: at_linkConType.pCon
+s: espconn.type
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+s: at_linkConType.linkId
+s: espconn.proto
+s: proto.tcp
+s: _esp_tcp.remote_ip
+s: _esp_tcp.remote_port
+s: at_linkConType.teType
+s: proto.udp
+s: _esp_udp.remote_ip
+s: _esp_udp.remote_port
+s: _esp_udp.local_port
+
+D: at_testCmdCipstart()
+g: at_ipMux
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+F: uart0_sendStr()
+
+D: at_tcpclient_recv()
+s: espconn.reverse
+F: os_printf()
+g: at_ipMux
+F: ets_sprintf()
+s: at_linkConType.linkId
+F: uart0_sendStr()
+F: uart0_tx_buffer()
+g: IPMODE
+
+D: at_udpclient_recv()
+s: espconn.reverse
+F: os_printf()
+s: at_linkConType.changType
+F: ets_memcpy()
+s: espconn.proto
+s: proto.udp
+s: _esp_udp.remote_ip
+s: at_linkConType.remoteIp
+S: _esp_udp.remote_port
+s: at_linkConType.remotePort
+S: at_linkConType.remotePort
+s: _esp_udp.remote_port
+S: at_linkConType.changType
+g: at_ipMux
+F: ets_sprintf()
+s: at_linkConType.linkId
+F: uart0_sendStr()
+F: uart0_tx_buffer()
+g: IPMODE
+
+D: at_tcpclient_sent_cb()
+g: IPMODE
+G: ipDataSendFlag
+F: ets_timer_disarm()
+g: at_delayCheck
+F: ets_timer_arm_new()
+F: system_os_post()
+F: ets_isr_unmask()
+G: specialAtState
+G: at_state
+F: uart0_sendStr()
+
+D: at_tcpclient_connect_cb()
+s: espconn.reverse
+F: os_printf()
+S: at_linkConType.linkEn
+S: at_linkConType.teType
+S: at_linkConType.repeaTime
+F: espconn_regist_disconcb()
+g: at_tcpclient_discon_cb
+F: espconn_regist_recvcb()
+g: at_tcpclient_recv
+F: espconn_regist_sentcb()
+g: at_tcpclient_sent_cb
+G: mdState
+g: at_state
+g: at_ipMux
+F: ets_sprintf()
+s: at_linkConType.linkId
+F: uart0_sendStr()
+G: specialAtState
+G: at_state
+
+D: at_tcpclient_recon_cb()
+s: espconn.reverse
+g: at_state
+S: at_linkConType.repeaTime
+F: ets_isr_unmask()
+F: os_printf()
+s: at_linkConType.repeaTime
+F: ets_delay_us()
+s: espconn.proto
+s: proto.tcp
+S: _esp_tcp.local_port
+F: espconn_port()
+F: espconn_connect()
+F: ets_sprintf()
+s: at_linkConType.linkId
+F: uart0_sendStr()
+s: at_linkConType.teToff
+S: at_linkConType.teToff
+F: vPortFree()
+S: at_linkConType.linkEn
+G: at_linkNum
+g: at_linkNum
+G: mdState
+G: disAllFlag
+G: specialAtState
+G: at_state
+
+D: at_dns_found()
+s: espconn.reverse
+S: at_linkConType.linkEn
+F: uart0_sendStr()
+G: specialAtState
+G: at_state
+F: os_printf()
+s: ip_addr.addr
+g: host_ip
+s: espconn.type
+F: ets_memcpy()
+s: espconn.proto
+s: proto.tcp
+s: _esp_tcp.remote_ip
+F: espconn_connect()
+G: at_linkNum
+s: proto.udp
+s: _esp_udp.remote_ip
+s: at_linkConType.remoteIp
+F: ets_sprintf()
+s: at_linkConType.linkId
+
+D: at_setupCmdCipstart()
+g: at_wifiMode
+F: wifi_station_get_connect_status()
+F: uart0_sendStr()
+g: at_ipMux
+F: atoi()
+F: strchr()
+F: at_dataStrCpy()
+F: ets_strcmp()
+F: os_printf()
+g: pLink[]
+g: pLink
+s: at_linkConType.linkEn
+G: pLink[]
+S: at_linkConType.pCon
+F: pvPortZalloc()
+s: at_linkConType.pCon
+S: espconn.type
+S: espconn.state
+S: at_linkConType.linkId
+F: ipaddr_addr()
+S: espconn.proto
+S: proto.tcp
+s: espconn.proto
+s: proto.tcp
+S: _esp_tcp.local_port
+F: espconn_port()
+S: _esp_tcp.remote_port
+F: ets_memcpy()
+s: _esp_tcp.remote_ip
+S: espconn.reverse
+F: espconn_regist_connectcb()
+g: at_tcpclient_connect_cb
+F: espconn_regist_reconcb()
+g: at_tcpclient_recon_cb
+G: specialAtState
+F: ets_memcmp()
+F: espconn_gethostbyname()
+g: host_ip
+g: at_dns_found
+F: espconn_connect()
+G: at_linkNum
+S: proto.udp
+s: proto.udp
+S: _esp_udp.local_port
+S: _esp_udp.remote_port
+S: at_linkConType.changType
+S: at_linkConType.remotePort
+s: _esp_udp.remote_port
+S: at_linkConType.linkEn
+S: at_linkConType.teType
+F: espconn_regist_recvcb()
+g: at_udpclient_recv
+F: espconn_regist_sentcb()
+g: at_tcpclient_sent_cb
+s: _esp_udp.remote_ip
+s: at_linkConType.remoteIp
+F: espconn_create()
+F: ets_sprintf()
+
+D: at_tcpclient_discon_cb()
+s: espconn.reverse
+g: at_state
+F: ets_isr_unmask()
+F: os_printf()
+s: espconn.proto
+s: proto.tcp
+S: _esp_tcp.local_port
+F: espconn_port()
+F: espconn_connect()
+F: vPortFree()
+S: at_linkConType.linkEn
+g: at_ipMux
+F: ets_sprintf()
+s: at_linkConType.linkId
+F: uart0_sendStr()
+G: at_linkNum
+g: disAllFlag
+g: at_linkNum
+G: mdState
+G: disAllFlag
+g: pLink[]
+g: pLink
+s: at_linkConType.linkEn
+s: at_linkConType.teType
+s: at_linkConType.pCon
+s: espconn.type
+G: specialAtState
+F: espconn_disconnect()
+G: pLink[]
+F: espconn_delete()
+s: proto.udp
+G: at_state
+
+D: at_testCmdCipclose()
+F: uart0_sendStr()
+
+D: at_setupCmdCipclose()
+g: at_ipMux
+F: uart0_sendStr()
+F: atoi()
+g: serverEn
+g: pLink[]
+g: pLink
+s: at_linkConType.linkEn
+s: at_linkConType.pCon
+s: espconn.type
+G: pLink[]
+S: at_linkConType.teToff
+G: specialAtState
+F: espconn_disconnect()
+G: disAllFlag
+S: at_linkConType.linkEn
+F: ets_sprintf()
+F: espconn_delete()
+F: vPortFree()
+s: espconn.proto
+s: proto.udp
+G: at_linkNum
+g: at_linkNum
+G: mdState
+s: at_linkConType.teType
+
+D: at_exeCmdCipclose()
+g: at_ipMux
+F: uart0_sendStr()
+g: pLink[]
+g: pLink
+s: at_linkConType.linkEn
+g: serverEn
+s: at_linkConType.pCon
+s: espconn.type
+G: specialAtState
+G: pLink[]
+S: at_linkConType.teToff
+F: espconn_disconnect()
+S: at_linkConType.linkEn
+F: espconn_delete()
+F: vPortFree()
+s: espconn.proto
+s: proto.udp
+G: at_linkNum
+g: at_linkNum
+G: mdState
+
+D: at_testCmdCipsend()
+F: uart0_sendStr()
+
+D: at_checkLastNum()
+
+D: at_setupCmdCipsend()
+g: IPMODE
+F: uart0_sendStr()
+g: at_ipMux
+G: sendingID
+F: atoi()
+g: sendingID
+g: pLink[]
+g: pLink
+s: at_linkConType.linkEn
+G: at_sendLen
+g: at_sendLen
+F: at_checkLastNum()
+G: pDataLine
+g: at_dataLine
+G: specialAtState
+G: at_state
+
+D: at_ipDataSending()
+F: espconn_sent()
+g: pLink[]
+g: pLink
+g: sendingID
+s: at_linkConType.pCon
+g: at_sendLen
+F: os_printf()
+
+D: at_ipDataTransparent()
+g: at_state
+F: ets_timer_disarm()
+g: at_delayCheck
+g: at_tranLen
+F: ets_memcmp()
+g: at_dataLine
+G: specialAtState
+G: at_state
+F: ets_isr_mask()
+F: espconn_sent()
+g: pLink[]
+g: pLink
+s: at_linkConType.pCon
+G: ipDataSendFlag
+G: pDataLine
+G: at_tranLen
+F: ets_timer_arm_new()
+
+D: at_ipDataSendNow()
+F: espconn_sent()
+g: pLink[]
+g: pLink
+s: at_linkConType.pCon
+g: at_dataLine
+g: at_tranLen
+G: ipDataSendFlag
+G: pDataLine
+G: at_tranLen
+
+D: at_exeCmdCipsend()
+g: serverEn
+g: IPMODE
+F: uart0_sendStr()
+g: pLink[]
+g: pLink
+s: at_linkConType.linkEn
+G: pDataLine
+g: at_dataLine
+G: at_tranLen
+G: specialAtState
+G: at_state
+F: ets_timer_disarm()
+g: at_delayCheck
+F: ets_timer_setfn()
+g: at_ipDataTransparent
+F: ets_timer_arm_new()
+
+D: at_queryCmdCipmux()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+g: at_ipMux
+F: uart0_sendStr()
+
+D: at_setupCmdCipmux()
+g: mdState
+F: uart0_sendStr()
+F: atoi()
+G: at_ipMux
+
+D: at_tcpserver_discon_cb()
+s: espconn.reverse
+F: os_printf()
+S: at_linkConType.linkEn
+S: at_linkConType.pCon
+g: at_ipMux
+F: ets_sprintf()
+s: at_linkConType.linkId
+F: uart0_sendStr()
+s: at_linkConType.teToff
+S: at_linkConType.teToff
+G: at_linkNum
+g: at_linkNum
+G: mdState
+G: disAllFlag
+F: ets_isr_unmask()
+G: specialAtState
+G: at_state
+
+D: at_tcpserver_recon_cb()
+s: espconn.reverse
+F: os_printf()
+S: at_linkConType.linkEn
+S: at_linkConType.pCon
+s: at_linkConType.linkId
+G: at_linkNum
+g: at_linkNum
+G: mdState
+g: at_ipMux
+F: ets_sprintf()
+F: uart0_sendStr()
+G: disAllFlag
+s: at_linkConType.teToff
+S: at_linkConType.teToff
+F: ets_isr_unmask()
+G: specialAtState
+G: at_state
+
+D: at_tcpserver_listen()
+F: os_printf()
+g: pLink[]
+g: pLink
+s: at_linkConType.linkEn
+G: pLink[]
+S: at_linkConType.linkEn
+S: at_linkConType.teToff
+S: at_linkConType.linkId
+S: at_linkConType.teType
+S: at_linkConType.repeaTime
+S: at_linkConType.pCon
+G: mdState
+G: at_linkNum
+S: espconn.reverse
+F: espconn_regist_recvcb()
+g: at_tcpclient_recv
+F: espconn_regist_reconcb()
+g: at_tcpserver_recon_cb
+F: espconn_regist_disconcb()
+g: at_tcpserver_discon_cb
+F: espconn_regist_sentcb()
+g: at_tcpclient_sent_cb
+g: at_ipMux
+F: ets_sprintf()
+F: uart0_sendStr()
+
+D: at_setupCmdCipserver()
+g: at_ipMux
+F: uart0_sendStr()
+F: atoi()
+g: serverEn
+G: pTcpServer
+F: pvPortZalloc()
+g: pTcpServer
+S: espconn.type
+S: espconn.state
+S: espconn.proto
+S: proto.tcp
+s: espconn.proto
+s: proto.tcp
+S: _esp_tcp.local_port
+F: espconn_regist_connectcb()
+g: at_tcpserver_listen
+F: espconn_accept()
+F: espconn_regist_time()
+g: server_timeover
+G: serverEn
+
+D: at_queryCmdCipmode()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+g: IPMODE
+F: uart0_sendStr()
+
+D: at_setupCmdCipmode()
+g: at_ipMux
+g: serverEn
+F: uart0_sendStr()
+F: atoi()
+G: IPMODE
+
+D: at_queryCmdCipsto()
+F: ets_sprintf()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdName
+g: server_timeover
+F: uart0_sendStr()
+
+D: at_setupCmdCipsto()
+g: serverEn
+F: uart0_sendStr()
+F: atoi()
+g: server_timeover
+G: server_timeover
+F: espconn_regist_time()
+g: pTcpServer
+
+D: at_upDate_rsp()
+s: upgrade_server_info.upgrade_flag
+F: os_printf()
+F: uart0_sendStr()
+F: vPortFree()
+s: upgrade_server_info.url
+S: upgrade_server_info.url
+G: specialAtState
+G: at_state
+
+D: at_upDate_discon_cb()
+s: espconn.proto
+s: proto.tcp
+F: vPortFree()
+F: os_printf()
+F: uart0_sendStr()
+
+D: at_upDate_recv()
+F: ets_timer_disarm()
+g: at_delayCheck
+F: uart0_sendStr()
+F: os_printf()
+F: ets_strstr()
+G: upServer
+F: pvPortZalloc()
+F: ets_sprintf()
+g: upServer
+s: upgrade_server_info.pre_version
+S: upgrade_server_info.pespconn
+F: ets_memcpy()
+s: upgrade_server_info.ip
+s: espconn.proto
+s: proto.tcp
+s: _esp_tcp.remote_ip
+S: upgrade_server_info.port
+S: upgrade_server_info.check_cb
+g: at_upDate_rsp
+S: upgrade_server_info.check_times
+s: upgrade_server_info.url
+S: upgrade_server_info.url
+s: upgrade_server_info.port
+
+D: at_upDate_wait()
+F: ets_timer_disarm()
+g: at_delayCheck
+F: espconn_disconnect()
+F: uart0_sendStr()
+G: specialAtState
+G: at_state
+
+D: at_upDate_sent_cb()
+F: ets_timer_disarm()
+g: at_delayCheck
+F: ets_timer_setfn()
+g: at_upDate_wait
+F: ets_timer_arm_new()
+F: os_printf()
+
+D: at_upDate_connect_cb()
+F: uart0_sendStr()
+F: espconn_regist_disconcb()
+g: at_upDate_discon_cb
+F: at_upDate_discon_cb()
+F: espconn_regist_recvcb()
+g: at_upDate_recv
+F: at_upDate_recv()
+F: espconn_regist_sentcb()
+g: at_upDate_sent_cb
+F: at_upDate_sent_cb()
+F: pvPortZalloc()
+F: ets_sprintf()
+s: espconn.proto
+s: proto.tcp
+s: _esp_tcp.remote_ip
+F: espconn_sent()
+F: ets_strlen()
+F: vPortFree()
+
+D: at_upDate_recon_cb()
+F: uart0_sendStr()
+s: espconn.proto
+s: proto.tcp
+F: vPortFree()
+F: os_printf()
+g: upServer
+G: upServer
+G: specialAtState
+G: at_state
+
+D: upServer_dns_found()
+F: uart0_sendStr()
+G: specialAtState
+G: at_state
+g: host_ip
+s: ip_addr.addr
+s: espconn.type
+F: ets_memcpy()
+s: espconn.proto
+s: proto.tcp
+s: _esp_tcp.remote_ip
+F: espconn_regist_connectcb()
+g: at_upDate_connect_cb
+F: at_upDate_connect_cb()
+F: espconn_regist_reconcb()
+g: at_upDate_recon_cb
+F: at_upDate_recon_cb()
+F: espconn_connect()
+
+D: at_exeCmdCiupdate()
+G: pespconn
+F: pvPortZalloc()
+g: pespconn
+S: espconn.type
+S: espconn.state
+S: espconn.proto
+S: proto.tcp
+s: espconn.proto
+s: proto.tcp
+S: _esp_tcp.local_port
+F: espconn_port()
+S: _esp_tcp.remote_port
+G: specialAtState
+F: espconn_gethostbyname()
+g: host_ip
+g: upServer_dns_found
+F: upServer_dns_found()
+
+D: at_exeCmdCiping()
+F: uart0_sendStr()
+
+D: at_exeCmdCipappup()
+
+D: *upgrade_server_info.check_cb()
+F: at_upDate_rsp()
+
+R: *espconn_regist_disconcb()__farg1() at_tcpclient_discon_cb()
+R: *espconn_regist_recvcb()__farg1() at_tcpclient_recv()
+R: *espconn_regist_sentcb()__farg1() at_tcpclient_sent_cb()
+R: *espconn_regist_connectcb()__farg1() at_tcpclient_connect_cb()
+R: *espconn_regist_reconcb()__farg1() at_tcpclient_recon_cb()
+R: *espconn_gethostbyname()__farg3() at_dns_found()
+R: *espconn_regist_recvcb()__farg1() at_udpclient_recv()
+R: *espconn_regist_sentcb()__farg1() at_tcpclient_sent_cb()
+R: *espconn_gethostbyname()__farg3() at_dns_found()
+R: *ets_timer_setfn()__farg1() at_ipDataTransparent()
+R: *espconn_regist_recvcb()__farg1() at_tcpclient_recv()
+R: *espconn_regist_reconcb()__farg1() at_tcpserver_recon_cb()
+R: *espconn_regist_disconcb()__farg1() at_tcpserver_discon_cb()
+R: *espconn_regist_sentcb()__farg1() at_tcpclient_sent_cb()
+R: *espconn_regist_connectcb()__farg1() at_tcpserver_listen()
+R: *ets_timer_setfn()__farg1() at_upDate_wait()
+R: *espconn_regist_disconcb()__farg1() at_upDate_discon_cb()
+R: *espconn_regist_recvcb()__farg1() at_upDate_recv()
+R: *espconn_regist_sentcb()__farg1() at_upDate_sent_cb()
+R: *espconn_regist_connectcb()__farg1() at_upDate_connect_cb()
+R: *espconn_regist_reconcb()__farg1() at_upDate_recon_cb()
+R: *espconn_gethostbyname()__farg3() upServer_dns_found()
+
+
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user1/at_ipCmd.c
+L: at_testCmdCifsr() 70 74
+L: at_setupCmdCifsr() 76 110
+L: at_exeCmdCifsr() 117 164
+L: at_testCmdCipstatus() 171 175
+L: at_exeCmdCipstatus() 182 223
+L: at_testCmdCipstart() 230 254
+L: at_tcpclient_recv() 263 290
+L: at_udpclient_recv() 299 343
+L: at_tcpclient_sent_cb() 350 367
+L: at_tcpclient_connect_cb() 398 435
+L: at_tcpclient_recon_cb() 442 543
+L: at_dns_found() 558 602
+L: at_setupCmdCipstart() 610 834
+L: at_tcpclient_discon_cb() 841 947
+L: at_testCmdCipclose() 954 958
+L: at_setupCmdCipclose() 966 1113
+L: at_exeCmdCipclose() 1120 1171
+L: at_testCmdCipsend() 1178 1182
+L: at_checkLastNum() 1184 1208
+L: at_setupCmdCipsend() 1215 1281
+L: at_ipDataSending() 1288 1300
+L: at_ipDataTransparent() 1307 1342
+L: at_ipDataSendNow() 1349 1360
+L: at_exeCmdCipsend() 1368 1390
+L: at_queryCmdCipmux() 1398 1406
+L: at_setupCmdCipmux() 1414 1439
+L: at_tcpserver_discon_cb() 1465 1503
+L: at_tcpserver_recon_cb() 1510 1556
+L: at_tcpserver_listen() 1563 1605
+L: at_setupCmdCipserver() 1665 1774
+L: at_queryCmdCipmode() 1781 1789
+L: at_setupCmdCipmode() 1797 1817
+L: at_queryCmdCipsto() 1819 1827
+L: at_setupCmdCipsto() 1829 1854
+L: at_upDate_rsp() 1904 1968
+L: at_upDate_discon_cb() 1995 2024
+L: at_upDate_recv() 2031 2097
+L: at_upDate_wait() 2099 2114
+L: at_upDate_sent_cb() 2122 2130
+L: at_upDate_connect_cb() 2137 2169
+L: at_upDate_recon_cb() 2176 2215
+L: upServer_dns_found() 2228 2264
+L: at_exeCmdCiupdate() 2266 2278
+L: at_exeCmdCiping() 2280 2284
+L: at_exeCmdCipappup() 2286 2290
+
+
+P: /opt/Espressif/ESP8266_SDK/include/ip_addr.h
+Y: ip_addr 6 8
+Y: ip_info 12 16
+
+P: /opt/Espressif/ESP8266_SDK/include/user_interface.h
+Y: upgrade_server_info 46 60
+
+P: /opt/Espressif/ESP8266_SDK/include/espconn.h
+Y: espconn 74 88
+Y: _esp_tcp 46 54
+Y: _esp_udp 56 61
+Y: proto 78 82
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user1/../include/at.h
+Y: at_funcationType 56 64
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user1/at_ipCmd.h
+Y: at_linkConType 29 40
+#266 types
+#99 arglists
+#314 regions
+#45 function definitions
+
+D: at_exeCmdNull()
+F: uart0_sendStr()
+
+D: at_setupCmdE()
+G: echoFlag
+F: uart0_sendStr()
+
+D: at_exeCmdRst()
+F: uart0_sendStr()
+F: system_restart()
+
+D: at_exeCmdGmr()
+F: ets_sprintf()
+F: uart0_sendStr()
+
+D: user_esp_platform_load_param()
+F: spi_flash_read()
+s: esp_platform_sec_flag_param.flag
+
+D: user_esp_platform_save_param()
+F: spi_flash_read()
+s: esp_platform_sec_flag_param.flag
+F: spi_flash_erase_sector()
+F: spi_flash_write()
+S: esp_platform_sec_flag_param.flag
+
+D: at_setupCmdIpr()
+S: at_uartType.baud
+F: atoi()
+s: at_uartType.baud
+F: uart0_sendStr()
+F: ets_delay_us()
+F: uart_div_modify()
+S: at_uartType.saved
+F: user_esp_platform_save_param()
+
+D: at_setupCmdGslp()
+F: atoi()
+F: uart0_sendStr()
+F: system_deep_sleep()
+
+
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/at_baseCmd.c
+L: at_exeCmdNull() 45 49
+L: at_setupCmdE() 57 75
+L: at_exeCmdRst() 82 87
+L: at_exeCmdGmr() 94 104
+L: user_esp_platform_load_param() 178 193
+L: user_esp_platform_save_param() 202 227
+L: at_setupCmdIpr() 230 264
+L: at_setupCmdGslp() 266 275
+
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/../include/at.h
+Y: at_uartType 66 70
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/at_baseCmd.c
+Y: esp_platform_sec_flag_param 167 170
+#230 types
+#85 arglists
+#67 regions
+#8 function definitions
+
+D: at_cmdSearch()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_cmdLen
+F: ets_memcmp()
+s: at_funcationType.at_cmdName
+
+D: at_getCmdLen()
+
+D: at_cmdProcess()
+F: at_getCmdLen()
+F: at_cmdSearch()
+g: at_fun[]
+g: at_fun
+s: at_funcationType.at_exeCmd
+F: *at_funcationType.at_exeCmd()
+F: uart0_sendStr()
+s: at_funcationType.at_queryCmd
+F: *at_funcationType.at_queryCmd()
+s: at_funcationType.at_testCmd
+F: *at_funcationType.at_testCmd()
+s: at_funcationType.at_setupCmd
+F: *at_funcationType.at_setupCmd()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdNull()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdE()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdRst()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdGmr()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdGslp()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdIpr()
+
+D: *at_funcationType.at_testCmd()
+F: at_testCmdCwmode()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCwmode()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCwmode()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCwjap()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCwjap()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCwlap()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCwlap()
+
+D: *at_funcationType.at_testCmd()
+F: at_testCmdCwqap()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCwqap()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCwsap()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCwsap()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCwlif()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCwdhcp()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCwdhcp()
+
+D: *at_funcationType.at_testCmd()
+F: at_testCmdCifsr()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCifsr()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCifsr()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCipstamac()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipstamac()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCipapmac()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipapmac()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCipsta()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipsta()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCipap()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipap()
+
+D: *at_funcationType.at_testCmd()
+F: at_testCmdCipstatus()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCipstatus()
+
+D: *at_funcationType.at_testCmd()
+F: at_testCmdCipstart()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipstart()
+
+D: *at_funcationType.at_testCmd()
+F: at_testCmdCipclose()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipclose()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCipclose()
+
+D: *at_funcationType.at_testCmd()
+F: at_testCmdCipsend()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipsend()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCipsend()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCipmux()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipmux()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipserver()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCipmode()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipmode()
+
+D: *at_funcationType.at_queryCmd()
+F: at_queryCmdCipsto()
+
+D: *at_funcationType.at_setupCmd()
+F: at_setupCmdCipsto()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCiupdate()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCiping()
+
+D: *at_funcationType.at_exeCmd()
+F: at_exeCmdCipappup()
+
+
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/at_cmd.c
+L: at_cmdSearch() 34 59
+L: at_getCmdLen() 67 88
+L: at_cmdProcess() 95 171
+
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/../include/at.h
+Y: at_funcationType 56 64
+#149 types
+#46 arglists
+#68 regions
+#3 function definitions
+
+D: at_recvTask()
+g: at_state
+g: echoFlag
+F: uart_tx_one_char()
+F: ets_memcmp()
+G: at_state
+g: at_cmdLine
+F: uart0_sendStr()
+F: system_os_post()
+g: at_cmdLine[]
+g: pDataLine
+g: at_dataLine[]
+g: at_dataLine
+g: at_sendLen
+G: pDataLine
+F: ets_timer_disarm()
+g: at_delayCheck
+F: ets_timer_arm_new()
+F: os_printf()
+G: at_tranLen
+F: ets_isr_unmask()
+
+D: at_procTask()
+g: at_state
+F: at_cmdProcess()
+g: at_cmdLine
+g: specialAtState
+G: at_state
+F: at_ipDataSending()
+g: at_dataLine
+F: at_ipDataSendNow()
+
+D: at_init()
+F: system_os_task()
+g: at_recvTask
+g: at_recvTaskQueue
+g: at_procTask
+g: at_procTaskQueue
+
+R: *system_os_task()__farg0() at_recvTask()
+R: *system_os_task()__farg0() at_procTask()
+
+
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/at_port.c
+L: at_recvTask() 80 250
+L: at_procTask() 257 280
+L: at_init() 302 308
+
+#155 types
+#46 arglists
+#69 regions
+#3 function definitions
+
+D: user_init()
+F: user_esp_platform_load_param()
+s: at_uartType.saved
+F: uart_init()
+s: at_uartType.baud
+G: at_wifiMode
+F: wifi_get_opmode()
+F: os_printf()
+F: uart0_sendStr()
+F: at_init()
+
+
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/user_main.c
+L: user_init() 26 45
+
+
+P: /opt/Espressif/ESP8266_SDK/examples/at/user/../include/at.h
+Y: at_uartType 66 70
+#101 types
+#28 arglists
+#27 regions
+#1 function definitions
