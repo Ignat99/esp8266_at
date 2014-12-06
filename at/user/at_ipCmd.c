@@ -267,13 +267,29 @@ at_tcpclient_recv(void *arg, char *pdata, unsigned short len)
   at_linkConType *linkTemp = (at_linkConType *)pespconn->reverse;
   char temp[32];
 
+  char ipTemp[64];
+  char *pPara;
+  int8_t len1;
+
   os_printf("recv\r\n");
   if(at_ipMux)
   {
     os_sprintf(temp, "\r\n+IPD,%d,%d:",
                linkTemp->linkId, len);
     uart0_sendStr(temp);
+
+    pPara = strchr(pdata, '\"');
+    len1 = at_dataStrCpy(ipTemp, pPara, len);
+    if(len1 == -1)
+    {
+      uart0_sendStr("Parse key str  ERROR\r\n");
+      return;
+    }
+
+
+
     uart0_tx_buffer(pdata, len);
+    uart0_tx_buffer(ipTemp,len1);
   }
   else if(IPMODE == FALSE)
   {
